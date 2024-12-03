@@ -1,101 +1,116 @@
-import Image from "next/image";
+'use client';
+import Image from 'next/image';
+import { useRef, useLayoutEffect, useCallback, useState } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
+import { motion } from 'framer-motion';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    const firstText = useRef(null);
+    const secondText = useRef(null);
+    const slider = useRef(null);
+    const arrowRef = useRef(null);
+    const terminalInputRef = useRef(null);
+    const [showInput, setShowInput] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+    const directionRef = useRef(-1);
+    const xPercentRef = useRef(0);
+
+    const animate = useCallback(() => {
+        if (xPercentRef.current < -100) {
+            xPercentRef.current = 0;
+        } else if (xPercentRef.current > 0) {
+            xPercentRef.current = -100;
+        }
+        gsap.set(firstText.current, { xPercent: xPercentRef.current });
+        gsap.set(secondText.current, { xPercent: xPercentRef.current });
+        requestAnimationFrame(animate);
+        xPercentRef.current += 0.1 * directionRef.current;
+    }, []);
+
+    useLayoutEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.to(slider.current, {
+            scrollTrigger: {
+                trigger: document.documentElement,
+                scrub: 0.25,
+                start: 0,
+                end: window.innerHeight,
+                onUpdate: (e) => (directionRef.current = e.direction * -1),
+            },
+            x: '-500px',
+        });
+        requestAnimationFrame(animate);
+
+        // Arrow animation
+        gsap.to(arrowRef.current, {
+            y: -10,
+            repeat: -1,
+            yoyo: true,
+            duration: 1,
+            ease: "power1.inOut"
+        });
+    }, [animate]);
+
+    // Fungsi untuk menunjukkan input teks terminal
+    const handleTerminalInput = () => {
+        setShowInput(true);
+        gsap.fromTo(terminalInputRef.current, { opacity: 0 }, { opacity: 1, duration: 1 });
+    };
+
+    return (
+        <motion.main
+            initial="initial"
+            animate="enter"
+            className="relative flex items-center justify-center h-screen overflow-hidden bg-black"
         >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+            {/* Background Noise or Grid */}
+            <div className="absolute top-0 left-0 w-full h-full bg-black opacity-80 z-0"></div>
+
+            <div className='z-0 absolute top-0 p-0 h-full w-full'>
+                <Image src="/images/l.png" fill alt="background" className="object-cover opacity-40" />
+            </div>
+
+            {/* Terminal-style Text Animation */}
+            <div className="absolute top-[calc(100vh-350px)] text-center z-10">
+                <div ref={slider} className="relative whitespace-nowrap">
+                    <p ref={firstText} className="text-green-400 text-[230px] font-mono tracking-wide">
+                        FullStack Web Developer -
+                    </p>
+                    <p ref={secondText} className="absolute left-full top-0 text-green-400 text-[230px] font-mono tracking-wide">
+                        FullStack Web Developer -
+                    </p>
+                </div>
+            </div>
+
+            {/* Terminal Input Trigger */}
+            <div className="absolute top-[45%] left-[50%] transform md:translate-x-80 -translate-x-1/2 text-white text-xl font-light ">
+                <div className="flex justify-center items-center mb-4">
+                    <svg
+                        ref={arrowRef}
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="transform scale-125 mb-[10px] hover:scale-150 transition duration-300 cursor-pointer"
+                        onClick={handleTerminalInput}
+                    >
+                        <path d="M12 21L12 3" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M5 14L12 21L19 14" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                </div>
+                
+                <p className="text-[16px] text-green-400 font-mono">IM Dani Ramdani</p>
+                <p className="text-[16px] text-white font-mono">FullStack Web Developer</p>
+         
+            </div>
+
+            {/* Terminal Input (Hidden Until Triggered) */}
+            
+
+            {/* Cursor Animation */}
+            
+        </motion.main>
+    );
 }
