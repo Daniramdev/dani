@@ -52,7 +52,6 @@ export default function Home() {
         });
     }, [animate]);
 
-    // Fungsi untuk menunjukkan input teks terminal
     const handleTerminalInput = () => {
         setShowInput(true);
         gsap.fromTo(terminalInputRef.current, { opacity: 0 }, { opacity: 1, duration: 1 });
@@ -62,22 +61,22 @@ export default function Home() {
         <motion.main
             initial="initial"
             animate="enter"
-            className="relative flex items-center justify-center h-screen overflow-hidden bg-black"
+            className="relative flex items-center justify-center h-screen overflow-hidden bg-gradient-to-r from-gray-600 via-black to-white"
         >
             {/* Background Noise or Grid */}
-            <div className="absolute top-0 left-0 w-full h-full bg-black opacity-80 z-0"></div>
+            <div className="absolute top-0 left-0 w-full h-full bg-black opacity-70 z-0"></div>
 
             <div className='z-0 absolute top-0 p-0 h-full w-full'>
                 <Image src="/images/l.png" fill alt="background" className="object-cover opacity-40" />
             </div>
 
             {/* Terminal-style Text Animation */}
-            <div className="absolute top-[calc(100vh-350px)] text-center z-10">
+            <div className="absolute top-[calc(100vh-350px)] text-center z-10 text-white">
                 <div ref={slider} className="relative whitespace-nowrap">
-                    <p ref={firstText} className="text-green-400 text-[230px] font-mono tracking-wide">
+                    <p ref={firstText} className="text-green-400 text-[230px] font-mono tracking-wide animate__animated animate__fadeIn animate__delay-1s">
                         FullStack Web Developer -
                     </p>
-                    <p ref={secondText} className="absolute left-full top-0 text-green-400 text-[230px] font-mono tracking-wide">
+                    <p ref={secondText} className="absolute left-full top-0 text-green-400 text-[230px] font-mono tracking-wide animate__animated animate__fadeIn animate__delay-1s">
                         FullStack Web Developer -
                     </p>
                 </div>
@@ -100,17 +99,27 @@ export default function Home() {
                         <path d="M5 14L12 21L19 14" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                 </div>
-                
-                <p className="text-[16px] text-green-400 font-mono">IM Dani Ramdani</p>
+
+                <p className="text-[16px] text-green-400 font-mono">I'M Dani Ramdani</p>
                 <p className="text-[16px] text-white font-mono">FullStack Web Developer</p>
-         
             </div>
 
             {/* Terminal Input (Hidden Until Triggered) */}
-            
-
-            {/* Cursor Animation */}
-            
+            {showInput && (
+                <div
+                    ref={terminalInputRef}
+                    className="absolute top-[55%] left-[50%] transform -translate-x-1/2 text-white text-lg font-mono"
+                >
+                    <div className="flex items-center space-x-2">
+                        <span className="text-green-400"></span>
+                        <input
+                            type="text"
+                            className="bg-transparent text-white outline-none w-64 p-2 border-2 border-green-400 rounded-lg focus:ring-2 focus:ring-green-400 transition duration-300"
+                            placeholder="Enter your command..."
+                        />
+                    </div>
+                </div>
+            )}
         </motion.main>
     );
 }

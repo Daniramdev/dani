@@ -7,7 +7,7 @@ import StairTransition from "@/components/StairTransition"
 
 
 export const metadata: Metadata = {
-  title: "Portopolio_dani",
+  title: "Dani",
   description: "Porto polio",
 };
 
