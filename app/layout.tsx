@@ -3,7 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import PageTransition from "@/components/PageTransition";
 import StairTransition from "@/components/StairTransition";
-import Image from "next/image"; // Import Image component
+
 
 export const metadata: Metadata = {
   title: "Dani",
