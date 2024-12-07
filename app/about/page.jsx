@@ -119,8 +119,8 @@ const About = () => {
         initial="initial"
         animate="animate"
       >
-        <h2 className="text-3xl font-semibold text-white mb-4">Let's Build Something Amazing Together</h2>
-        <p className="text-lg text-white mb-8">I am always open to new opportunities and challenges. Let’s connect and create something extraordinary!</p>
+        <h2 className="text-3xl font-semibold text-white mb-4">Lets Build Something Amazing Together</h2>
+        <p className="text-lg text-white mb-8">I am always open to new opportunities and challenges. Lets connect and create something extraordinary!</p>
         <motion.a
           href="mailto:danird1240@gmail.com?subject=Inquiry&body=Hello,%0D%0A"
           className="text-lg text-teal-900 bg-white px-6 py-2 rounded-full hover:bg-teal-100 transition"
