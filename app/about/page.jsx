@@ -29,7 +29,7 @@ const iconHover = {
 
 const About = () => {
   return (
-    <div className="container flex flex-col items-center justify-center min-h-screen text-white mt-20 md:mt-0">
+    <div className="container flex flex-col items-center justify-center min-h-screen text-white mt-20 md:mt-0  ">
       <motion.div
         className="text-center mb-10 px-4 md:px-16"
         variants={fadeIn}
@@ -131,7 +131,7 @@ const About = () => {
 
       {/* Parallax Background */}
       <motion.div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 "
         style={{
           backgroundImage: 'url(/images/l.png)', // Replace with your background image
           height: '100vh',

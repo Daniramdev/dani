@@ -30,7 +30,7 @@ export default function RoundedButton({ children, backgroundColor = "#455CE9", .
     return (
         <Magnetic>
             <div
-                className="rounded-full border border-gray-600 cursor-pointer relative flex items-center justify-center p-4"
+                className="rounded-full border border-gray-800 cursor-pointer relative flex items-center justify-center p-4"
                 onMouseEnter={manageMouseEnter}
                 onMouseLeave={manageMouseLeave}
                 style={{ overflow: "hidden", backgroundColor }}

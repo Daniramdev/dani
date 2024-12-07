@@ -9,18 +9,18 @@ const WorkSliderBtns = ({ containerStyles, btnStyles, iconsStyles }) => {
   return (
     <div className={containerStyles}>
       <button 
-        className={`${btnStyles} bg-gray-600 hover:bg-gray-500`} 
+        className={`${btnStyles} bg-black/60 text-white p-3 rounded-full hover:bg-green-600 transition-all duration-300`} 
         onClick={() => swiper.slidePrev()} 
         aria-label="Previous Slide" // Aksesibilitas
       >
-        <PiCaretLeftBold className={iconsStyles} /> {/* Terapkan styling ikon */}
+        <PiCaretLeftBold className={`${iconsStyles} text-2xl`} /> {/* Adjusted icon size */}
       </button>
       <button 
-        className={`${btnStyles} bg-gray-600 hover:bg-gray-500`} 
+        className={`${btnStyles} bg-black/60 text-white p-3 rounded-full hover:bg-green-600 transition-all duration-300`} 
         onClick={() => swiper.slideNext()} 
         aria-label="Next Slide" // Aksesibilitas
       >
-        <PiCaretRightBold className={iconsStyles} /> {/* Terapkan styling ikon */}
+        <PiCaretRightBold className={`${iconsStyles} text-2xl`} /> {/* Adjusted icon size */}
       </button>
     </div>
   );

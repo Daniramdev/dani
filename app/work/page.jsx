@@ -20,7 +20,7 @@ const projects = [
     category: "Fullstack Developer",
     title: "PT.Iconnect(PLN)",
     description:
-      "PT.Iconnect(PLN) (Oktober - Desember 2023) Saya menggunakan Python dengan Flask dan Tailwind CSS, serta JavaScript untuk membangun aplikasi web yang responsif. Dalam proyek ini, saya membuat 26 diagram yang menampilkan rata-rata data setiap tahun, menggunakan library JavaScript Highcharts. Dan memanagement data saya berhasil mengimplementasikan nya dapat mengelola dan menganalisis data dengan lebih mudah dan akurat.",
+      "PT.Iconnect(PLN) (Oktober - Desember 2023) Saya menggunakan Python dengan Flask dan Tailwind CSS, serta JavaScript untuk membangun aplikasi web yang responsif.",
     stack: [
       { name: "Html 5" },
       { name: "JavaScript" },
@@ -37,7 +37,7 @@ const projects = [
     category: "Fullstack Developer",
     title: "Project 2",
     description:
-      "Toko Kopi Bandung mengunakan bahasa pemograman PHP framework CI dalam proyek kali ini saya merubah beberapa vitur  memperbaiki bagian backend pegiriman pesan, meyimpan prodact dan memanagement,menapilkan pesananan Prodact dan saya berhasil mengemplementsaikan nya hingga bisa mengirim pesan ke admin dan menapilkan prodact,meyimpan prodact yang telah di pesan user ke halaman admin ",
+      "Toko Kopi Bandung mengunakan PHP framework CI untuk memperbaiki fitur backend dan manajemen produk.",
     stack: [
       { name: "PHP" },
       { name: "Css 3" },
@@ -72,122 +72,123 @@ const Work = () => {
 
   return (
     <motion.section
-      initial={{ opacity: 0 }}
-      animate={{
-        opacity: 1,
-        transition: { delay: 2.0, duration: 0.2, ease: "easeIn" },
-      }}
-      className="flex flex-col justify-center xl:px-0"
-    >
-      <div className="container mx-auto md:mt-40 py-20 md:py-0 h-full">
-        <div className="flex flex-col xl:flex-row">
-          <div className="w-full  flex gap-[30px] flex-col xl:justify-between order-2 xl:order-none">
-            <div className="text-8xl leading-none font-extrabold text-transparent bg-clip-text bg-white ">
-              {project.num}
-            </div>
-            <div className="text-[42px] font-bold leading-none text-white group-hover:text-green-500 transition-all duration-500 capitalize">
-              {project.category}
-            </div>
-            <div className="text-white/60 text-sm">{project.description}</div>
-            <ul className="flex gap-3">
-              {project.stack.map((Item, index) => (
-                <li key={index} className="text-xl text-green-500">
-                  {Item.name}
-                  {index !== project.stack.length - 1 && ","}
-                </li>
-              ))}
-            </ul>
-            <div className="border border-white/20"></div>
-            <div className="flex items-center gap-4">
-              <Link href={project.live}>
-                <TooltipProvider delayDuration={100}>
-                  <Tooltip>
-                    <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 justify-center items-center flex group">
-                      <BsArrowUpRight className="text-white text-center text-3xl group-hover:text-green-500" />
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>Live project</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-              </Link>
-              <Link href={project.github}>
-                <TooltipProvider delayDuration={100}>
-                  <Tooltip>
-                    <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 justify-center items-center flex group">
-                      <BsGithub className="text-white text-center text-3xl group-hover:text-green-500" />
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>Github repository</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-              </Link>
-            </div>
+    initial={{ opacity: 0 }}
+    animate={{
+      opacity: 1,
+      transition: { delay: 0.2, duration: 0.8, ease: "easeInOut" },
+    }}
+    className="flex flex-col justify-center  px-6 md:mt-40 py-10 "
+  >
+    <div className="container mx-auto h-full ">
+      <div className="flex flex-col xl:flex-row items-center justify-between">
+        <div className="w-full xl:w-1/2 flex flex-col gap-6 xl:order-1 order-2"> 
+          <div className="text-4xl font-semibold text-green-400">
+            {project.num}
           </div>
-          <div className="w-full xl:w-[50%]">
-            <Swiper
-              spaceBetween={30}
-              slidesPerView={1}
-              className="xl:h-[520px] mb-12"
-              onSlideChange={handleSlideChange}
-            >
-              {projects.map((project, index) => (
-                <SwiperSlide key={index} className="w-full">
-                  <div
-                    className="h-80 relative group flex justify-center items-center bg-gray-50/30 cursor-pointer"
-                    onClick={() => openModal(project.image)} // Open modal on image click
-                  >
-                    <div className="absolute top-0 bottom-0 h-full w-full bg-black/10 z-10">
-                      <div className="relative w-full h-80">
-                        <Image
-                          src={project.image}
-                          fill
-                          className="object-cover"
-                          alt="Project Image"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              ))}
-              <div className="absolute inset-0 flex justify-between items-center z-20">
-                <WorkSliderBtns containerStyles="flex gap-1 w-full justify-between text-xl md:-mt-40" />
-              </div>
-            </Swiper>
+          <div className="text-3xl font-bold text-white hover:text-green-400 transition-all duration-300">
+            {project.title}
           </div>
+          <p className="text-white/80 text-lg">{project.description}</p>
+          <ul className="flex flex-wrap gap-4 mt-4 xl:mt-0">
+            {project.stack.map((Item, index) => (
+              <li
+                key={index}
+                className="text-xl text-green-400 font-medium hover:text-green-600 transition-all duration-300"
+              >
+                {Item.name}
+              </li>
+            ))}
+          </ul>
+          <div className="flex gap-4 mt-6">
+            <Link href={project.live}>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger className="p-4 rounded-full bg-gray-600 hover:bg-green-600 transition duration-300">
+                    <BsArrowUpRight className="text-white text-xl" />
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Live project</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </Link>
+            <Link href={project.github}>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger className="p-4 rounded-full bg-gray-600 hover:bg-green-600 transition duration-300">
+                    <BsGithub className="text-white text-xl" />
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>GitHub repository</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </Link>
+          </div>
+        </div>
+        <div className="w-full xl:w-1/2 mt-10 xl:mt-0 xl:order-2 order-1"> {/* Added order classes */}
+          <Swiper
+            spaceBetween={30}
+            slidesPerView={1}
+            className="h-[480px]"
+            onSlideChange={handleSlideChange}
+          >
+            {projects.map((project, index) => (
+              <SwiperSlide key={index} className="relative">
+                <div
+                  className="h-full relative group cursor-pointer transition duration-500 hover:scale-105"
+                  onClick={() => openModal(project.image)}
+                >
+                  <Image
+                    src={project.image}
+                    alt="Project Image"
+                    layout="fill"
+                    objectFit="cover"
+                    className="rounded-xl opacity-80 group-hover:opacity-100 transition-all duration-300"
+                  />
+                  <div className="absolute top-0 bottom-0 left-0 right-0 bg-black/40 rounded-xl z-10"></div>
+                </div>
+              </SwiperSlide>
+            ))}
+            <div className="absolute inset-0 flex justify-between items-center z-20">
+              <WorkSliderBtns containerStyles="flex gap-1 w-full justify-between text-xl" />
+            </div>
+          </Swiper>
         </div>
       </div>
-
-      {/* Full-Screen Modal with Zoom functionality */}
-      {isModalOpen && (
+    </div>
+  
+    {/* Full-Screen Modal with Zoom functionality */}
+    {isModalOpen && (
+      <div
+        className="fixed inset-0 bg-black/80 flex justify-center items-center z-50"
+        onClick={closeModal}
+      >
         <div
-          className="fixed inset-0 bg-black/80 flex justify-center items-center z-40"
-          onClick={closeModal}
+          className="relative max-w-full max-h-full"
+          onClick={(e) => e.stopPropagation()}
         >
-          <div
-            className="relative max-w-full max-h-full"
-            onClick={(e) => e.stopPropagation()} // Prevent modal from closing when clicking the image
-          >
-            <div className="relative overflow-hidden">
-              <Image
-                src={modalImage}
-                layout="fill"
-                objectFit="contain"
-                className="transition-transform transform hover:scale-110 duration-300"
-                alt="Full Screen Project Image"
-              />
-            </div>
-            <button
-              onClick={closeModal}
-              className="absolute top-4 right-4 text-white text-3xl font-bold"
-            >
-              &times;
-            </button>
+          <div className="relative overflow-hidden w-[80vw] h-[80vh] sm:w-[70vw] sm:h-[70vh] md:w-[60vw] md:h-[60vh] lg:w-[50vw] lg:h-[50vh]">
+            <Image
+              src={modalImage}
+              layout="fill"
+              objectFit="contain"
+              className="transition-transform transform hover:scale-110 duration-300"
+              alt="Full Screen Project Image"
+            />
           </div>
+          <button
+            onClick={closeModal}
+            className="absolute top-4 right-4 text-white text-3xl font-bold"
+          >
+            &times;
+          </button>
         </div>
-      )}
-    </motion.section>
+      </div>
+    )}
+  </motion.section>
+  
+  
   );
 };
 

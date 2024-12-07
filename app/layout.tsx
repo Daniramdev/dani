@@ -24,7 +24,6 @@ export default function RootLayout({
         <meta name="author" content="Dani" />
         <meta property="og:title" content="Dani's Portfolio" />
         <meta property="og:description" content="Showcasing the work of Dani, a full-stack developer" />
-        <meta property="og:image" content="/path/to/your-image.jpg" />
         <meta property="og:url" content="https://yourwebsite.com" />
         <link rel="icon" href="/images/logo.jpg" />
       </head>

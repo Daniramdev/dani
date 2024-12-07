@@ -14,7 +14,7 @@ const Contact = () => {
       ref={container}
       className="flex items-center justify-center  text-white mt-40 "
     >
-      <div className="w-full max-w-7xl ">
+      <div className="w-full max-w-7xl">
         <div className="pb-20 mx-4 md:mx-32 relative">
           <motion.div
             className="flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0"
