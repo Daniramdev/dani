@@ -4,6 +4,7 @@ import { useRef, useLayoutEffect, useCallback, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import { motion } from 'framer-motion';
+import Image from "next/image"; 
 
 export default function Home() {
     const firstText = useRef(null);
