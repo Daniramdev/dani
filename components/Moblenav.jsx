@@ -42,7 +42,7 @@ const Moblenav = () => {
 
         {/* Social Media Links */}
         <div className="flex space-x-10 mt-6">
-          <Link href="https://www.instagram.com/daniramv_v/" target="_blank" className="text-white hover:text-green-500">
+          <Link href="https://www.instagram.com/danird_08" target="_blank" className="text-white hover:text-green-500">
             <FaInstagram className="text-2xl" />
           </Link>
           <Link href="https://web.facebook.com/daniramdani.daniramdani.165033" target="_blank" className="text-white hover:text-green-500">

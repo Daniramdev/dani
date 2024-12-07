@@ -100,7 +100,7 @@ export default function Home() {
                     </svg>
                 </div>
 
-                <p className="text-[16px] text-green-400 font-mono">I'M Dani Ramdani</p>
+                <p className="text-[16px] text-green-400 font-mono">IM Dani Ramdani</p>
                 <p className="text-[16px] text-white font-mono">FullStack Web Developer</p>
             </div>
 
