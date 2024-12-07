@@ -77,11 +77,11 @@ const Work = () => {
         opacity: 1,
         transition: { delay: 2.0, duration: 0.2, ease: "easeIn" },
       }}
-      className="min-h-[80vh] flex flex-col justify-center xl:px-0"
+      className="flex flex-col justify-center xl:px-0"
     >
-      <div className="container mx-auto md:mt-40 py-20 md:py-0">
+      <div className="container mx-auto md:mt-40 py-20 md:py-0 h-full">
         <div className="flex flex-col xl:flex-row">
-          <div className="w-full xl:w-[50%] flex gap-[30px] flex-col xl:justify-between order-2 xl:order-none">
+          <div className="w-full  flex gap-[30px] flex-col xl:justify-between order-2 xl:order-none">
             <div className="text-8xl leading-none font-extrabold text-transparent bg-clip-text bg-white ">
               {project.num}
             </div>
@@ -162,14 +162,14 @@ const Work = () => {
       {/* Full-Screen Modal with Zoom functionality */}
       {isModalOpen && (
         <div
-          className="fixed inset-0 bg-black/80 flex justify-center items-center z-50"
+          className="fixed inset-0 bg-black/80 flex justify-center items-center z-40"
           onClick={closeModal}
         >
           <div
             className="relative max-w-full max-h-full"
             onClick={(e) => e.stopPropagation()} // Prevent modal from closing when clicking the image
           >
-            <div className="relative overflow-hidden w-[80vw] h-[80vh]">
+            <div className="relative overflow-hidden">
               <Image
                 src={modalImage}
                 layout="fill"

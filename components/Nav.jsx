@@ -26,7 +26,7 @@ const Nav = () => {
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden xl:flex space-x-10 translate-x-40">
+            <nav className="hidden xl:flex space-x-10 px-10">
                 {links.map((link, index) => (
                     <Magnetic key={index}>
                         <div className="relative group">

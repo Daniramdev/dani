@@ -62,20 +62,20 @@ export default function Home() {
         <motion.main
             initial="initial"
             animate="enter"
-            className="relative flex items-center justify-center h-screen overflow-hidden bg-gradient-to-r from-gray-600 via-black to-white"
+            className="relative flex items-center justify-center h-screen overflow-hidden bg-gradient-to-r from-black via-black to-gray-300"
         >
             {/* Background Noise or Grid */}
-            <div className="absolute top-0 left-0 w-full h-full bg-black opacity-70 z-0"></div>
+            <div className=""></div>
 
             <div className='z-0 absolute top-0 p-0 h-full w-full'>
-                <Image src="/images/l.png" fill alt="background" className="object-cover opacity-40" />
+                <Image src="/images/l.png" fill alt="background" className="object-cover overflow-hidden opacity-40" />
             </div>
 
             {/* Terminal-style Text Animation */}
             <div className="absolute top-[calc(100vh-350px)] text-center z-10 text-white">
                 <div ref={slider} className="relative whitespace-nowrap">
                     <p ref={firstText} className="text-green-400 text-[230px] font-mono tracking-wide animate__animated animate__fadeIn animate__delay-1s">
-                        FullStack Web Developer &ndash;
+                        FullStack Web Developer &ndash; 
                     </p>
                     <p ref={secondText} className="absolute left-full top-0 text-green-400 text-[230px] font-mono tracking-wide animate__animated animate__fadeIn animate__delay-1s">
                         FullStack Web Developer &ndash;
@@ -102,9 +102,9 @@ export default function Home() {
                 </div>
 
 
-                <p className="text-[16px] text-green-400 font-mono">I&apos;M Dani Ramdani</p>
+            
 
-                <p className="text-[16px] text-green-400 font-mono">I&apos;M Dani Ramdani</p> {/* Escaped apostrophe */}
+                <p className="text-[16px] text-green-400 font-mono">I&apos;M Dani Ramdani</p>
 
                 <p className="text-[16px] text-white font-mono">FullStack Web Developer</p>
             </div>

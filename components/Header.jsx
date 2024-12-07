@@ -8,7 +8,7 @@ const Header = () => {
     <header className="text-white  relative z-10">
       <div className="container mx-auto flex justify-between items-center  relative">
         {/* Logo */}
-        <Link href="/" className="absolute left-10  md:-translate-x-40">
+        <Link href="/" className="absolute left-10  md:px-4">
           <h1 className="text-xl font-semibold md:mt-24 mt-20">
             Dani<span>.</span>
           </h1>
