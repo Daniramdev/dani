@@ -102,7 +102,7 @@ export default function Home() {
                 </div>
 
 
-                <p className="text-[16px] text-green-400 font-mono">IM Dani Ramdani</p>
+                <p className="text-[16px] text-green-400 font-mono">I&apos;M Dani Ramdani</p>
 
                 <p className="text-[16px] text-green-400 font-mono">I&apos;M Dani Ramdani</p> {/* Escaped apostrophe */}
 
