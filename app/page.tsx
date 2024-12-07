@@ -4,7 +4,7 @@ import { useRef, useLayoutEffect, useCallback, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import { motion } from 'framer-motion';
-import Image from "next/image"; 
+import Image from "next/image"; // Keep this if it's used for background image, otherwise remove
 
 export default function Home() {
     const firstText = useRef(null);
@@ -75,16 +75,16 @@ export default function Home() {
             <div className="absolute top-[calc(100vh-350px)] text-center z-10 text-white">
                 <div ref={slider} className="relative whitespace-nowrap">
                     <p ref={firstText} className="text-green-400 text-[230px] font-mono tracking-wide animate__animated animate__fadeIn animate__delay-1s">
-                        FullStack Web Developer -
+                        FullStack Web Developer &ndash;
                     </p>
                     <p ref={secondText} className="absolute left-full top-0 text-green-400 text-[230px] font-mono tracking-wide animate__animated animate__fadeIn animate__delay-1s">
-                        FullStack Web Developer -
+                        FullStack Web Developer &ndash;
                     </p>
                 </div>
             </div>
 
             {/* Terminal Input Trigger */}
-            <div className="absolute top-[45%] left-[50%] transform md:translate-x-80 -translate-x-1/2 text-white text-xl font-light ">
+            <div className="absolute top-[45%] left-[50%] transform md:translate-x-80 -translate-x-1/2 text-white text-xl font-light">
                 <div className="flex justify-center items-center mb-4">
                     <svg
                         ref={arrowRef}
@@ -101,7 +101,7 @@ export default function Home() {
                     </svg>
                 </div>
 
-                <p className="text-[16px] text-green-400 font-mono">I'M Dani Ramdani</p>
+                <p className="text-[16px] text-green-400 font-mono">I&apos;M Dani Ramdani</p> {/* Escaped apostrophe */}
                 <p className="text-[16px] text-white font-mono">FullStack Web Developer</p>
             </div>
 
